@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário Criativo de Allana Formigoni</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <h1 class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    <i class="fas fa-heart mr-2"></i>Meu Diário Criativo
+                </h1>
+                <button id="themeToggle" class="p-2 rounded-full  hover:bg-gray-100 transition">
+                    <i class="fas fa-moon text-xl" title="Alterar Tema"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Hero Section -->
+        <section class="text-center mb-12">
+            <h2 class="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent">
+                Bem-vinda Allana ao seu espaço criativo
+            </h2>
+            <p class="text-xl text-gray-600 mb-8">Compartilhe seus poemas, músicas, fotos e muito mais!</p>
+        </section>
+
+        <!-- Navigation Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 mb-8">
+            <button class="tab-btn active px-6 py-3 rounded-full bg-purple-600 text-white font-semibold transition-all hover:scale-105" data-tab="poemas">
+                <i class="fas fa-feather-alt mr-2"></i>Poemas
+            </button>
+            <button class="tab-btn px-6 py-3 rounded-full bg-pink-600 text-white font-semibold transition-all hover:scale-105" data-tab="musicas">
+                <i class="fas fa-music mr-2"></i>Músicas
+            </button>
+            <button class="tab-btn px-6 py-3 rounded-full bg-indigo-600 text-white font-semibold transition-all hover:scale-105" data-tab="fotos">
+                <i class="fas fa-images mr-2"></i>Fotos
+            </button>
+            <button class="tab-btn px-6 py-3 rounded-full bg-rose-600 text-white font-semibold transition-all hover:scale-105" data-tab="livros">
+                <i class="fas fa-book mr-2"></i>Livros
+            </button>
+            <button class="tab-btn px-6 py-3 rounded-full bg-cyan-600 text-white font-semibold transition-all hover:scale-105" data-tab="playlists">
+                <i class="fab fa-spotify mr-2"></i>Playlists
+            </button>
+            <button class="tab-btn px-6 py-3 rounded-full bg-amber-600 text-white font-semibold transition-all hover:scale-105" data-tab="diario">
+                <i class="fas fa-book-open mr-2"></i>Diário
+            </button>
+        </div>
+
+        <!-- Content Sections -->
+        <div id="contentArea" class="space-y-8">
+            <!-- Poemas Section -->
+            <section id="poemas" class="content-section">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-3xl font-bold mb-6 text-purple-600">
+                        <i class="fas fa-feather-alt mr-2"></i>Meus Poemas
+                    </h3>
+                    <button id="addPoemaBtn" class="mb-6 px-6 py-3 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition font-semibold">
+                        <i class="fas fa-plus mr-2"></i>Novo Poema
+                    </button>
+                    <div id="poemasContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Poemas serão adicionados aqui via JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Músicas Section -->
+            <section id="musicas" class="content-section hidden">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-3xl font-bold mb-6 text-pink-600">
+                        <i class="fas fa-music mr-2"></i>Minhas Músicas Favoritas
+                    </h3>
+                    <button id="addMusicaBtn" class="mb-6 px-6 py-3 bg-pink-600 text-white rounded-full hover:bg-pink-700 transition font-semibold">
+                        <i class="fas fa-plus mr-2"></i>Adicionar Música
+                    </button>
+                    <div id="musicasContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Músicas serão adicionadas aqui via JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fotos Section -->
+            <section id="fotos" class="content-section hidden">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-3xl font-bold mb-6 text-indigo-600">
+                        <i class="fas fa-images mr-2"></i>Minhas Fotos
+                    </h3>
+                    <button id="addFotoBtn" class="mb-6 px-6 py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition font-semibold">
+                        <i class="fas fa-plus mr-2"></i>Adicionar Foto
+                    </button>
+                    <div id="fotosContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Fotos serão adicionadas aqui via JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Livros Section -->
+            <section id="livros" class="content-section hidden">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-3xl font-bold mb-6 text-rose-600">
+                        <i class="fas fa-book mr-2"></i>Meus Livros
+                    </h3>
+                    <button id="addLivroBtn" class="mb-6 px-6 py-3 bg-rose-600 text-white rounded-full hover:bg-rose-700 transition font-semibold">
+                        <i class="fas fa-plus mr-2"></i>Adicionar Livro
+                    </button>
+                    <div id="livrosContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Livros serão adicionados aqui via JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Playlists Section -->
+            <section id="playlists" class="content-section hidden">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-3xl font-bold mb-6 text-cyan-600">
+                        <i class="fab fa-spotify mr-2"></i>Minhas Playlists do Spotify
+                    </h3>
+                    <button id="addPlaylistBtn" class="mb-6 px-6 py-3 bg-cyan-600 text-white rounded-full hover:bg-cyan-700 transition font-semibold">
+                        <i class="fas fa-plus mr-2"></i>Adicionar Playlist
+                    </button>
+                    <div id="playlistsContainer" class="grid grid-cols-1 gap-6">
+                        <!-- Playlists serão adicionadas aqui via JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diário Section -->
+            <section id="diario" class="content-section hidden">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-3xl font-bold mb-6 text-amber-600">
+                        <i class="fas fa-book-open mr-2"></i>Meu Diário
+                    </h3>
+                    <button id="addDiarioBtn" class="mb-6 px-6 py-3 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition font-semibold">
+                        <i class="fas fa-plus mr-2"></i>Nova Entrada
+                    </button>
+                    <div id="diarioContainer" class="space-y-6">
+                        <!-- Entradas do diário serão adicionadas aqui via JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <!-- Modal para Poema -->
+    <div id="poemaModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="text-2xl font-bold mb-4 text-purple-600">Novo Poema</h2>
+            <form id="poemaForm">
+                <input type="text" id="poemaTitulo" placeholder="Título do poema" class="w-full p-3 mb-4 border rounded-lg" required>
+                <textarea id="poemaTexto" placeholder="Escreva seu poema aqui..." class="w-full p-3 mb-4 border rounded-lg h-64" required></textarea>
+                <button type="submit" class="w-full px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition font-semibold">
+                    Salvar Poema
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para Música -->
+    <div id="musicaModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="text-2xl font-bold mb-4 text-pink-600">Adicionar Música</h2>
+            <form id="musicaForm">
+                <input type="text" id="musicaNome" placeholder="Nome da música" class="w-full p-3 mb-4 border rounded-lg" required>
+                <input type="text" id="musicaArtista" placeholder="Artista" class="w-full p-3 mb-4 border rounded-lg" required>
+                <input type="url" id="musicaLink" placeholder="Link do YouTube ou Spotify (opcional)" class="w-full p-3 mb-4 border rounded-lg">
+                <textarea id="musicaNotas" placeholder="Suas notas sobre esta música..." class="w-full p-3 mb-4 border rounded-lg h-32"></textarea>
+                <button type="submit" class="w-full px-6 py-3 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition font-semibold">
+                    Adicionar Música
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para Foto -->
+    <div id="fotoModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="text-2xl font-bold mb-4 text-indigo-600">Adicionar Foto</h2>
+            <form id="fotoForm">
+                <input type="text" id="fotoTitulo" placeholder="Título da foto" class="w-full p-3 mb-4 border rounded-lg" required>
+                <input type="url" id="fotoUrl" placeholder="URL da imagem" class="w-full p-3 mb-4 border rounded-lg" required>
+                <textarea id="fotoDescricao" placeholder="Descrição..." class="w-full p-3 mb-4 border rounded-lg h-32"></textarea>
+                <button type="submit" class="w-full px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-semibold">
+                    Adicionar Foto
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para Livro -->
+    <div id="livroModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="text-2xl font-bold mb-4 text-rose-600">Adicionar Livro</h2>
+            <form id="livroForm">
+                <input type="text" id="livroTitulo" placeholder="Título do livro" class="w-full p-3 mb-4 border rounded-lg" required>
+                <input type="text" id="livroAutor" placeholder="Autor" class="w-full p-3 mb-4 border rounded-lg" required>
+                <input type="url" id="livroCapa" placeholder="URL da capa (opcional)" class="w-full p-3 mb-4 border rounded-lg">
+                <textarea id="livroResenha" placeholder="Sua resenha ou notas..." class="w-full p-3 mb-4 border rounded-lg h-32"></textarea>
+                <button type="submit" class="w-full px-6 py-3 bg-rose-600 text-white rounded-lg hover:bg-rose-700 transition font-semibold">
+                    Adicionar Livro
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para Playlist -->
+    <div id="playlistModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="text-2xl font-bold mb-4 text-cyan-600">Adicionar Playlist do Spotify</h2>
+            <form id="playlistForm">
+                <input type="text" id="playlistNome" placeholder="Nome da playlist" class="w-full p-3 mb-4 border rounded-lg" required>
+                <input type="text" id="playlistId" placeholder="ID da Playlist do Spotify (veja instruções abaixo)" class="w-full p-3 mb-4 border rounded-lg" required>
+                <p class="text-sm text-gray-600 mb-4">
+                    <i class="fas fa-info-circle mr-1"></i>
+                    Para encontrar o ID: Abra sua playlist no Spotify, clique em "..." → "Compartilhar" → "Copiar link da playlist". 
+                    O ID é a parte após "playlist/" no link.
+                </p>
+                <textarea id="playlistDescricao" placeholder="Descrição da playlist..." class="w-full p-3 mb-4 border rounded-lg h-32"></textarea>
+                <button type="submit" class="w-full px-6 py-3 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition font-semibold">
+                    Adicionar Playlist
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para Diário -->
+    <div id="diarioModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="text-2xl font-bold mb-4 text-amber-600">Nova Entrada no Diário</h2>
+            <form id="diarioForm">
+                <input type="text" id="diarioTitulo" placeholder="Título da entrada" class="w-full p-3 mb-4 border rounded-lg" required>
+                <textarea id="diarioTexto" placeholder="Escreva sobre seu dia..." class="w-full p-3 mb-4 border rounded-lg h-64" required></textarea>
+                <button type="submit" class="w-full px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition font-semibold">
+                    Salvar Entrada
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white/80 backdrop-blur-md mt-12 py-6 text-center text-gray-600">
+        <p>Feito com <i class="fas fa-heart text-red-500"></i> do Papai para você minha filha</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
